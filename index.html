@@ -51,16 +51,16 @@
   <footer class="text-center p-4 text-gray-400">&copy; 2025 Cytra Notes Hub</footer>
   <script>
     const notes=[
-      {title:'FORM 3 GEOGRAPHY',file:'notes/FORM 3 GEOGRAPHY-1.doc',icon:'fa-globe'},
-      {title:'FORM THREE BIOLOGY',file:'notes/FORM THREE BIOLOGY.docx',icon:'fa-dna'},
-      {title:'HISTORY FORM 3',file:'notes/HISTORY FORM 3.pdf',icon:'fa-landmark'},
-      {title:'INTEGRATED ENGLISH',file:'notes/INTEGRATED ENGLISH SIMPLIFIED.pdf',icon:'fa-book'},
-      {title:'KCSE FORM 3 CHEMISTRY NOTES',file:'notes/KCSE FORM 3 CHEMISTRY NOTES.pdf',icon:'fa-flask'},
-      {title:'KISWAHILI NOTES',file:'notes/KISWAHILI NOTES FORM 1-4 BOOKLET.pdf',icon:'fa-language'},
-      {title:'MATHS FORM 3 NOTES',file:'notes/MATHS_FORM_3_NOTES.pdf',icon:'fa-calculator'},
-      {title:'AGRICULTURE FORM 3 NOTES',file:'notes/agriculture form 3 notes.pdf',icon:'fa-seedling'},
-      {title:'FORM 3 COMPUTER NOTES',file:'notes/form-3-computer NOTES.pdf',icon:'fa-computer'},
-      {title:'PHYSICS FORM 3 NOTES',file:'notes/physics form 3 notes.pdf',icon:'fa-atom'}
+      {title:'FORM 3 GEOGRAPHY',file:'FORM 3/FORM 3 GEOGRAPHY-1.doc',icon:'fa-globe'},
+      {title:'FORM THREE BIOLOGY',file:'FORM 3/FORM THREE BIOLOGY.docx',icon:'fa-dna'},
+      {title:'HISTORY FORM 3',file:'FORM 3/HISTORY FORM 3.pdf',icon:'fa-landmark'},
+      {title:'INTEGRATED ENGLISH',file:'FORM 3/INTEGRATED ENGLISH SIMPLIFIED.pdf',icon:'fa-book'},
+      {title:'KCSE FORM 3 CHEMISTRY NOTES',file:'FORM 3/KCSE FORM 3 CHEMISTRY NOTES.pdf',icon:'fa-flask'},
+      {title:'KISWAHILI NOTES',file:'FORM 3/KISWAHILI NOTES FORM 1-4 BOOKLET.pdf',icon:'fa-language'},
+      {title:'MATHS FORM 3 NOTES',file:'FORM 3/MATHS_FORM_3_NOTES.pdf',icon:'fa-calculator'},
+      {title:'AGRICULTURE FORM 3 NOTES',file:'FORM 3/agriculture form 3 notes.pdf',icon:'fa-seedling'},
+      {title:'FORM 3 COMPUTER NOTES',file:'FORM 3/form-3-computer NOTES.pdf',icon:'fa-computer'},
+      {title:'PHYSICS FORM 3 NOTES',file:'FORM 3/physics form 3 notes.pdf',icon:'fa-atom'}
     ];
     const grid=document.getElementById('notesGrid');
     function loadNotes(filter=''){grid.innerHTML='';notes.filter(n=>n.title.toLowerCase().includes(filter.toLowerCase())).forEach(note=>{
