@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cytra Notes Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-700 text-white p-6 text-center shadow-lg">
+        <h1 class="text-3xl font-bold">Cytra Notes Hub</h1>
+        <p class="mt-2">Your one-stop hub for all notes</p>
+    </header>
+    <nav class="bg-blue-800 text-white flex flex-wrap justify-center p-4 space-x-4">
+        <a href="#geography" class="hover:underline">Geography</a>
+        <a href="#biology" class="hover:underline">Biology</a>
+        <a href="#history" class="hover:underline">History</a>
+        <a href="#english" class="hover:underline">English</a>
+        <a href="#chemistry" class="hover:underline">Chemistry</a>
+        <a href="#kiswahili" class="hover:underline">Kiswahili</a>
+        <a href="#maths" class="hover:underline">Maths</a>
+        <a href="#agriculture" class="hover:underline">Agriculture</a>
+        <a href="#computer" class="hover:underline">Computer</a>
+        <a href="#physics" class="hover:underline">Physics</a>
+    </nav>
+    <div class="max-w-5xl mx-auto p-6 bg-white shadow rounded-lg mt-6">
+        <div class="flex justify-between items-center mb-6">
+            <input type="text" id="search" placeholder="Search notes..." class="border p-2 rounded w-full">
+            <button id="loginBtn" class="ml-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Login</button>
+        </div>
+        <div id="notesGrid" class="grid md:grid-cols-3 sm:grid-cols-2 gap-6"></div>
+    </div>
+    <footer class="bg-blue-700 text-white text-center p-4 mt-10">
+        &copy; 2025 Cytra Notes Hub
+    </footer>
+
+    <!-- Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+            <h2 class="text-xl mb-4">Login</h2>
+            <input type="text" id="username" placeholder="Username" class="border p-2 w-full mb-3 rounded">
+            <input type="password" id="password" placeholder="Password" class="border p-2 w-full mb-3 rounded">
+            <div class="flex justify-end space-x-2">
+                <button id="closeModal" class="px-3 py-1 border rounded">Cancel</button>
+                <button id="loginSubmit" class="px-3 py-1 bg-blue-600 text-white rounded">Login</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+const notes = [
+    {title: 'FORM 3 GEOGRAPHY', file: 'FORM 3/FORM 3 GEOGRAPHY-1.doc'},
+    {title: 'FORM THREE BIOLOGY', file: 'FORM 3/FORM THREE BIOLOGY.docx'},
+    {title: 'HISTORY FORM 3', file: 'FORM 3/HISTORY FORM 3.pdf'},
+    {title: 'INTEGRATED ENGLISH', file: 'FORM 3/INTEGRATED ENGLISH SIMPLIFIED.pdf'},
+    {title: 'KCSE FORM 3 CHEMISTRY NOTES', file: 'FORM 3/KCSE FORM 3 CHEMISTRY NOTES.pdf'},
+    {title: 'KISWAHILI NOTES', file: 'FORM 3/KISWAHILI NOTES FORM 1-4 BOOKLET.pdf'},
+    {title: 'MATHS FORM 3 NOTES', file: 'FORM 3/MATHS_FORM_3_NOTES.pdf'},
+    {title: 'AGRICULTURE FORM 3 NOTES', file: 'FORM 3/agriculture form 3 notes.pdf'},
+    {title: 'FORM 3 COMPUTER NOTES', file: 'FORM 3/form-3-computer NOTES.pdf'},
+    {title: 'PHYSICS FORM 3 NOTES', file: 'FORM 3/physics form 3 notes.pdf'}
+];
+const grid = document.getElementById('notesGrid');
+function loadNotes(filter = '') {
+    grid.innerHTML = '';
+    notes.filter(n => n.title.toLowerCase().includes(filter.toLowerCase())).forEach(note => {
+        const div = document.createElement('div');
+        div.className = 'border p-4 rounded shadow hover:shadow-lg transition';
+        div.innerHTML = `<h3 class='text-lg font-semibold mb-2'>${note.title}</h3>
+                         <a href='${note.file}' target='_blank' class='text-blue-600 hover:underline'>Open</a>`;
+        grid.appendChild(div);
+    });
+}
+loadNotes();
+document.getElementById('search').addEventListener('input', e => loadNotes(e.target.value));
+
+// Modal logic
+const loginBtn = document.getElementById('loginBtn');
+const loginModal = document.getElementById('loginModal');
+const closeModal = document.getElementById('closeModal');
+const loginSubmit = document.getElementById('loginSubmit');
+loginBtn.addEventListener('click', () => loginModal.classList.remove('hidden'));
+closeModal.addEventListener('click', () => loginModal.classList.add('hidden'));
+loginSubmit.addEventListener('click', async () => {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    alert(`Logged in as ${username}`);
+    loginModal.classList.add('hidden');
+});
+</script>
+</body>
+  </html>
+  
